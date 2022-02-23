@@ -6,4 +6,3 @@ my_list = input('Введите строку из нескольких слов 
 
 for i,item in enumerate(my_list):
     print(f"{i+1} : {item[:10]}")
-
