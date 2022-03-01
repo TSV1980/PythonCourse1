@@ -17,8 +17,23 @@ def my_powfunc(x, y):
         print('Данные не соответствуют условию задачи')
     return x**y
 
+def my_powfunc2(x, y):
+    try:
+        x = float(x)
+        y = int(y)
+    except ValueError:
+        print(' Ошибка ввода данных')
+        return
+    if (x <= 0 or y >=0):
+        print('Данные не соответствуют условию задачи')
+    res = 1
+    for _ in range(abs(y)):
+        res = res / x
+    return res
+
 
 ax = input('Введите действительное положительное число x: ')
 ay = input('Введите целое отрицательное число y: ')
 
-print(f'Результат решения задачи: {my_powfunc(ax,ay)}')
+print(f'Результат решения задачи (вариант 1): {my_powfunc(ax,ay)}')
+print(f'Результат решения задачи (вариант 2): {my_powfunc2(ax,ay)}')
