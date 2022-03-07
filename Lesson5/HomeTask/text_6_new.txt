@@ -1,0 +1,7 @@
+Name:Fizra. Hours = 30 
+Name:Math. Hours = 60 
+Name:History. Hours = 50 
+Name:Physics. Hours = 108 
+Name:Informatics. Hours = 72 
+Name:Literature. Hours = 18 
+Name:Russian. Hours = 90 
