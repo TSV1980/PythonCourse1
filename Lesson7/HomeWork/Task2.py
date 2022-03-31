@@ -26,34 +26,34 @@ class Clothes(ABC):
 class Coat(Clothes):
     '''Клас Пальто'''
     
-    def __init__(self,V):
-        self.V = V
+    def __init__(self,v):
+        self.v = v
         Coat.fabric_cnt += self.material_expence
         
     def __str__(self):
-        return f'Размер пальто:{self.V}. Расход ткани {self.material_expence}. Общий расход {Coat.fabric_cnt}'
+        return f'Размер пальто:{self.v}. Расход ткани {self.material_expence}. Общий расход {Coat.fabric_cnt}'
     
     @property
     def material_expence(self):
         '''для пальто (V/6.5 + 0.5)'''
-        res = self.V / 6.5 + 0.5;
+        res = self.v / 6.5 + 0.5;
         return float(f'{res:.01f}')
     
       
 class Suite(Clothes):
     '''Клас Костюм'''
         
-    def __init__(self,H):
-        self.H = H
+    def __init__(self,h):
+        self.h = h
         Suite.fabric_cnt += self.material_expence
         
     def __str__(self):
-        return f'Рост для костюма:{self.H}. Расход ткани {self.material_expence}. Общий расход {Suite.fabric_cnt}'
+        return f'Рост для костюма:{self.h}. Расход ткани {self.material_expence}. Общий расход {Suite.fabric_cnt}'
     
     @property
     def material_expence(self):
         '''для костюма (2*H + 0.3)'''
-        res = self.H / 2.0 + 0.3;
+        res = self.h / 2.0 + 0.3;
         return float(f'{res:.01f}')
     
 
