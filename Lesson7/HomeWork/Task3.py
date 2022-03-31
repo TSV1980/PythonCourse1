@@ -32,39 +32,40 @@ make_order() вернет строку: *****\n*****\n**.
 make_order() вернет строку: *****\n*****\n*****.
 """
 
+
 class Cell:
-    
+
     def __init__(self, value):
         self.value = value
-    
+
     def __str__(self):
         return f'{self.value}'
-    
+
     def __add__(self, other):
         print(f'Operation ADD: {self.value} + {other.value}')
         return Cell(self.value + other.value)
-    
+
     def __sub__(self, other):
         print(f'Operation SUB: {self.value} - {other.value}')
         if self.value < other.value:
             raise ValueError('Отрицательный результат')
         return Cell(self.value - other.value)
-    
+
     def __mul__(self, other):
         print(f'Operation MUL: {self.value} * {other.value}')
         return Cell(self.value * other.value)
-    
+
     def __floordiv__(self, other):
         print(f'Operation DIV: {self.value} / {other.value}')
         return Cell(self.value // other.value)
-    
+
     def make_order(self, num_in_row):
         result = ['*' * num_in_row] * (self.value // num_in_row)
         if self.value % num_in_row:
             result.append('*' * (self.value % num_in_row))
         return '\n'.join(result)
-    
-    
+
+
 cell_1 = Cell(44)
 cell_2 = Cell(33)
 print(cell_1 + cell_2)
@@ -72,11 +73,3 @@ print(cell_1 - cell_2)
 print(cell_1 * cell_2)
 print(cell_1 // cell_2)
 print(cell_1.make_order(10))
-
-
-
-    
-        
-    
-    
-

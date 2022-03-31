@@ -11,51 +11,52 @@
 """
 from abc import ABC, abstractmethod
 
+
 class Clothes(ABC):
     '''Абстрактный класс'''
-    
-    fabric_cnt  = 0
+
+    fabric_cnt = 0
     '''Атрибут класса для подсчета общего количество материала'''
-    
+
     @abstractmethod
     def material_expence(self):
         '''Абстрактный метод'''
         pass
 
- 
+
 class Coat(Clothes):
     '''Клас Пальто'''
-    
-    def __init__(self,v):
+
+    def __init__(self, v):
         self.v = v
         Coat.fabric_cnt += self.material_expence
-        
+
     def __str__(self):
         return f'Размер пальто:{self.v}. Расход ткани {self.material_expence}. Общий расход {Coat.fabric_cnt}'
-    
+
     @property
     def material_expence(self):
         '''для пальто (V/6.5 + 0.5)'''
         res = self.v / 6.5 + 0.5;
         return float(f'{res:.01f}')
-    
-      
+
+
 class Suite(Clothes):
     '''Клас Костюм'''
-        
-    def __init__(self,h):
+
+    def __init__(self, h):
         self.h = h
         Suite.fabric_cnt += self.material_expence
-        
+
     def __str__(self):
         return f'Рост для костюма:{self.h}. Расход ткани {self.material_expence}. Общий расход {Suite.fabric_cnt}'
-    
+
     @property
     def material_expence(self):
         '''для костюма (2*H + 0.3)'''
         res = self.h / 2.0 + 0.3;
         return float(f'{res:.01f}')
-    
+
 
 coat_1 = Coat(48)
 print(coat_1)

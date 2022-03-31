@@ -14,23 +14,23 @@
 
 class Matrix:
     """Класс МАТРИЦА"""
-    
-    def __init__(self,param):
+
+    def __init__(self, param):
         self.param = param
         for line in self.param[:-1]:
-            if not len(line) == len(self.param[self.param.index(line)+1]):
+            if not len(line) == len(self.param[self.param.index(line) + 1]):
                 raise ValueError('Строки в матрице не одинаковой размерности')
-        
-    #def __str__(self):
+
+    # def __str__(self):
     #    res = ""
     #    for line in self.param:
     #        res += str(line).replace(',',' ').replace('[','|').replace(']','|') + '\n'
     #    return res
-    
+
     def __str__(self):
         '''Переопределение метода преобразования в строку'''
-        return '\n'.join('   '.join(str(num) for num in line) for line in self.param)   
-   
+        return '\n'.join('   '.join(str(num) for num in line) for line in self.param)
+
     def __add__(self, other):
         '''Переопределение метода сложения матрицы'''
         if not len(self.param) == len(other.param):
@@ -39,10 +39,9 @@ class Matrix:
         for row in range(len(self.param)):
             item.append([])
             for col in range(len(self.param[row])):
-                item[row].append(self.param[row][col] + other.param[row][col]) 
+                item[row].append(self.param[row][col] + other.param[row][col])
         return Matrix(item)
-    
-        
+
     def __sub__(self, other):
         '''Переопределение метода вычитания матрицы'''
         if not len(self.param) == len(other.param):
@@ -51,18 +50,19 @@ class Matrix:
         for row in range(len(self.param)):
             item.append([])
             for col in range(len(self.param[row])):
-                item[row].append(self.param[row][col] - other.param[row][col]) 
+                item[row].append(self.param[row][col] - other.param[row][col])
         return Matrix(item)
-    
-    #def __add__(self, other):
+
+    # def __add__(self, other):
     #    if not len(self.param) == len(other.param):
     #        raise ValueError('Размерности матриц не совпадают')
-    #    item = [[int(self.param[line][num] + other.param[line][num]) for num in range(len(self.param[line]))] for line in range(len(self.param))]
+    #    item = [[int(self.param[line][num] + other.param[line][num]) for num
+    #    in range(len(self.param[line]))] for line in range(len(self.param))]
     #    return Matrix(item)
-    
- 
-m1 = Matrix([[1,2,3],[4,5,6],[7,8,9]])
-m2 = Matrix([[1,2,3],[1,1,1],[2,2,2]])
+
+
+m1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+m2 = Matrix([[1, 2, 3], [1, 1, 1], [2, 2, 2]])
 print('Матрица М1:')
 print(m1)
 print('Матрица М2:')
