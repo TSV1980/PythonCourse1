@@ -60,7 +60,7 @@ class Matrix:
     #    item = [[int(self.param[line][num] + other.param[line][num]) for num in range(len(self.param[line]))] for line in range(len(self.param))]
     #    return Matrix(item)
     
-
+ 
 m1 = Matrix([[1,2,3],[4,5,6],[7,8,9]])
 m2 = Matrix([[1,2,3],[1,1,1],[2,2,2]])
 print('Матрица М1:')
